@@ -1,11 +1,11 @@
 """
-This is the player class. It is a subclass of the Game class.
+This is the player class. Stores all player specific information.
 """
 
 class Player :
     def ___init___(self, symbol) :
-        self.name = ''
         self.symbol = symbol
+        self.name = ''
         self.moves = []
         self.wins = 0
 
