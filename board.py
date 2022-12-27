@@ -3,7 +3,6 @@ The class for the gameboard.
 """
 
 class Board:
-    
     def __init__(self) :
         self.board = {  # each number represents a space on a 3x3 grid
             1:'',
@@ -17,9 +16,7 @@ class Board:
             9:'',
         }
 
-    
-    def place_symbol(self,symbol: str,location: int) :
+    def place_symbol(self,symbol: str, location: int) :
         self.board[location] = symbol
 
-    
     

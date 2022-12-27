@@ -1,22 +1,14 @@
 """
-This is the player Class
+This is the player class. It is a subclass of the Game class.
 """
 
 class Player :
-    
-    def ___init___(self) :
+    def ___init___(self, symbol) :
         self.name = ''
-        self.symbol = ''
-        self.spaces = []
+        self.symbol = symbol
+        self.moves = []
         self.wins = 0
 
-
     def get_name(self) :
-        return input("Please enter your name: ")
-    
-    def get_symbol(self) :
-        return input(f"What will {self.name}'s symbol be? (X or O): ")
+        self.name = input("Please enter your name: ")
 
-    def get_info(self) :
-        self.name = self.get_name()
-        self.symbol = self.get_symbol()

@@ -2,10 +2,18 @@
 The main logic for the game.
 """
 
-from player    import *
-from gameboard import *
-from game      import *
+from player    import Player
+from board     import Board
+from game      import Game
 
-player_one = Player()
-player_one.get_info()
-print(player_one.name, player_one.symbol)
+game = Game()
+
+player_one = Player('X')
+player_one.get_name()
+game.add_player(player_one)
+
+player_two = Player('O')
+player_two.get_name()
+game.add_player(player_two)
+
+
