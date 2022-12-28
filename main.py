@@ -66,22 +66,20 @@ def main() :
 #                             GAME IS HERE                                 #
 ############################################################################
 
-
-# Instantiates the game and board
-game = Game()
-board = Board()
-
-# Instantiates the players and adds them to the game
-player_1 = Player('X', 0)
-player_1.get_name()
-game.add_player(player_1)
-
-player_2 = Player('O', 1)
-player_2.get_name()
-game.add_player(player_2)
-
-
 if __name__ == '__main__' :
+
+    # Instantiates the game and board
+    game = Game()
+    board = Board()
+
+    # Instantiates the players and adds them to the game
+    player_1 = Player('X', 0)
+    player_1.get_name()
+    game.add_player(player_1)
+
+    player_2 = Player('O', 1)
+    player_2.get_name()
+    game.add_player(player_2)
 
     play_again = True
     while play_again :
