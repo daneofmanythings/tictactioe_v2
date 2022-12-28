@@ -12,7 +12,7 @@ def get_player_move(player) :
     validates the move against a global list of untaken spaces
     """
     valid = False
-    
+
     while not valid :
         move = player.get_move()  # Loops until valid move is input
         if move not in taken_moves : # Checking the move against the global variable
@@ -38,7 +38,7 @@ def check_win(player) :
     Checks to see if a player has won, then returns if the game should continue
     """
     keep_playing = game.keep_playing(player.index)
-    if keep_playing == False :
+    if keep_playing is False :
         player_1.has_won()
 
     return keep_playing
@@ -51,7 +51,7 @@ def main() :
     keep_playing = True
     counter = 0  # Oscillates the turn order
     while len(taken_moves) < 9 and keep_playing :
-        
+
         if counter == 0 :
             player_turn(player_1)
             keep_playing = check_win(player_1)
@@ -82,16 +82,16 @@ game.add_player(player_2)
 
 
 if __name__ == '__main__' :
-    
+
     play_again = True
     while play_again :
-        
+
         # Resets the gamestate if players choose to play again.
         board = Board()
         taken_moves = []
         player_1.moves = [False, False, False, False, False, False, False, False, False]
         player_2.moves = [False, False, False, False, False, False, False, False, False]
-        
+
         # Main game
         main()
 
@@ -99,7 +99,7 @@ if __name__ == '__main__' :
         response = input('Would you like to play again? (y/n): ').lower()
         while response not in ('y', 'n') :
             response = input('Please input y or n: ').lower()
-        
+
         if response == 'n' :
             print('Thank you for playing!')
             play_again = False
