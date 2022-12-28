@@ -26,7 +26,7 @@ class Player :
         Gets a possible move and checks that it is an int between 1 and 9.
         """
         move = input(f'{self.name}, what is your move? ')
-        while move not in ('1','2','3','4','5','6','7','8','9') :  # So pretty.
+        while move not in self.moves :  # So pretty.
             move = input('Enter a valid move (1 - 9):  ')
         return move
 
