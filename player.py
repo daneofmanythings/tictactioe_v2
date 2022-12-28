@@ -13,9 +13,7 @@ class Player :
         self.index = index  # Index of player in the Game's list. First player is 0, ect.
         self.name = ''
         self.wins = 0
-        self.moves = [
-            False, False, False, False, False, False, False, False, False
-        ]
+        self.moves = '123456789'  # Using regex for win validation
 
     def get_name(self) :
         """
@@ -30,7 +28,7 @@ class Player :
         move = input(f'{self.name}, what is your move? ')
         while move not in ('1','2','3','4','5','6','7','8','9') :  # So pretty.
             move = input('Enter a valid move (1 - 9):  ')
-        return int(move)
+        return move
 
     def apply_move(self, move) :
         """
@@ -38,8 +36,8 @@ class Player :
         in main.py against previous moves, applies the move to the player
         and game. Also returns the players symbol to add to the board.
         """
-        self.moves[move - 1] = True
-        return move, self.symbol
+        self.moves = self.moves.replace(move, 'X')
+        return int(move), self.symbol
 
     def has_won(self) :
         """

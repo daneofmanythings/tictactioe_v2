@@ -6,6 +6,8 @@ from player    import Player
 from board     import Board
 from game      import Game
 
+BLANK_MOVES = '123456789'
+
 def get_player_move(player) :
     """
     Calls the get_move method for the player.
@@ -26,10 +28,10 @@ def player_turn(player) :
     """
     A loop for a player's turn.
     """
-    print(board.print_board())  # Prints the game board
     move = get_player_move(player)  # Grabs player_1's potential move and validates it
     move = player.apply_move(move)  # Applies a valid move to the player
-    board.update_board(move[0] - 1, move[1])  # Passes the data on to the game board
+    board.update_board(move[0] - 1, move[1])  # Passes the data on to the game board, loc and symbol.
+    print(board.print_board())  # Prints the game board
 
     return  # I like how this looks. Don't @ me.
 
@@ -39,7 +41,7 @@ def check_win(player) :
     """
     keep_playing = game.keep_playing(player.index)
     if keep_playing is False :
-        player_1.has_won()
+        player.has_won()
 
     return keep_playing
 
@@ -87,8 +89,9 @@ if __name__ == '__main__' :
         # Resets the gamestate if players choose to play again.
         board = Board()
         taken_moves = []
-        player_1.moves = [False, False, False, False, False, False, False, False, False]
-        player_2.moves = [False, False, False, False, False, False, False, False, False]
+        player_1.moves = BLANK_MOVES
+        player_2.moves = BLANK_MOVES
+        print(board.print_board())  # Prints the game board
 
         # Main game
         main()

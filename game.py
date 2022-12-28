@@ -2,22 +2,25 @@
 A class to keep track of meta data about the game.
 """
 
+import re
+
 class Game :
     """
     Holds meta information about the game. Might see more use with more features.
     """
     def __init__(self) :
         self.players = []
-        self.win_cons = (
-            [True, True, True, False, False, False, False, False, False],
-            [False, False, False, True, True, True, False, False, False],
-            [False, False, False, False, False, False, True, True, True],
-            [True, False, False, True, False, False, True, False, False],
-            [False, True, False, False, True, False, False, True, False],
-            [False, False, True, False, False, True, False, False, True],
-            [True, False, False, False, True, False, False, False, True],
-            [False, False, True, False, True, False, True, False, False],
+        self.win_cons_raw = (
+            'XXX......',
+            '...XXX...',
+            '......XXX',
+            'X..X..X..',
+            '.X..X..X.',
+            '..X..X..X',
+            'X...X...X',
+            '..X.X.X..'
         )
+        self.win_cons = [re.compile(x) for x in self.win_cons_raw]
 
     def add_player(self, player) :
         """
@@ -31,7 +34,7 @@ class Game :
         to determine if a win has happened.
         """
         for win_con in self.win_cons :
-            if win_con == self.players[idx].moves :
+            if win_con.match(self.players[idx].moves) :
                 return False
 
         return True
