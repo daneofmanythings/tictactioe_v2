@@ -21,7 +21,7 @@ class Board:
 
     def generate_board(self) -> str:  # Returns a board string to print in the terminal
         """
-        Prints the gameboard in the terminal dadoiiiii
+        Generates the gameboard for terminal print.
         """
         board = ''
 
