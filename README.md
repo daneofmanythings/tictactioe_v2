@@ -1,4 +1,4 @@
-*****THERE IS AN ISSUE WITH WIN VALIDATION. It currently won't work most of the time.
+Win validation should be working now.
 
 This is a re-written version of milestone project 1. It uses the rest of the knowledge of the course to make a more maintainable program. 
 
