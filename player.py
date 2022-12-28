@@ -13,7 +13,8 @@ class Player :
         self.index = index  # Index of player in the Game's list. First player is 0, ect
         self.name = ''
         self.wins = 0
-        self.moves = '123456789'  # Also contained in a global variable to update if multiple games
+        self.no_moves = '123456789'  # DO NOT TOUCH!
+        self.moves = '123456789'  # Get's updated as play progresses
 
     def get_name(self) :
         """
@@ -26,7 +27,7 @@ class Player :
         Gets a possible move and checks that it is an int between 1 and 9.
         """
         move = input(f'{self.name}, what is your move? ')
-        while move not in self.moves :
+        while move not in self.no_moves:
             move = input('Enter a valid move (1 - 9):  ')
         return move  # Digit string
 
@@ -38,6 +39,12 @@ class Player :
         """
         self.moves = self.moves.replace(move, 'X')
         return int(move), self.symbol
+
+    def reset_moves(self) :
+        """
+        Resets the players move tracker.
+        """
+        self.moves = self.no_moves
 
     def has_won(self) :
         """

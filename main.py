@@ -6,7 +6,6 @@ from player    import Player
 from board     import Board
 from game      import Game
 
-BLANK_MOVES = '123456789'  # The instantiated version of player.moves for when looping games
 
 def get_player_move(player) :  # Takes instance of Player()
     """
@@ -100,8 +99,8 @@ if __name__ == '__main__' :
             # Resets the gamestate if players choose to play again.
             board = Board()
             taken_moves = []
-            player_1.moves = BLANK_MOVES
-            player_2.moves = BLANK_MOVES
+            player_1.reset_moves()
+            player_2.reset_moves()
             print(board.generate_board())
 
         if response == 'n' :
