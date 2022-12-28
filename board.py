@@ -5,6 +5,7 @@ The class for the gameboard.
 class Board:
     def __init__(self) :
         self.board = {  # each key represents a space on a 3x3 grid
+            0:'_',
             1:'_',
             2:'_',
             3:'_',
@@ -13,7 +14,6 @@ class Board:
             6:'_',
             7:'_',
             8:'_',
-            9:'_',
         }
 
     def print_board(self) -> str:
