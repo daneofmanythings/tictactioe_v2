@@ -3,6 +3,9 @@ The class for the gameboard.
 """
 
 class Board:
+    """
+    This class mostly is here to draw the gameboard in the terminal
+    """
     def __init__(self) :
         self.board = {  # each key represents a space on a 3x3 grid
             0:'_',
@@ -17,7 +20,9 @@ class Board:
         }
 
     def print_board(self) -> str:
-        
+        """
+        Prints the gameboard in the terminal dadoiiiii
+        """
         board = ''
 
         for idx, space in self.board.items() :
@@ -28,6 +33,7 @@ class Board:
         return board
 
     def update_board(self, loc: int, sym: str) :
+        """
+        Adds the player's symbol to the gameboard.
+        """
         self.board[loc] = sym
-
-    
