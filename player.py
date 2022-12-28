@@ -8,12 +8,12 @@ class Player :
     """
     This is a class holding all the player information
     """
-    def __init__(self, symbol, index) :
-        self.symbol = symbol  # Symbol to place on the board
-        self.index = index  # Index of player in the Game's list. First player is 0, ect.
+    def __init__(self, symbol: str, index: int) :
+        self.symbol = symbol  # Symbol to place on the board, Typically 'X' or 'O'
+        self.index = index  # Index of player in the Game's list. First player is 0, ect
         self.name = ''
         self.wins = 0
-        self.moves = '123456789'  # Using regex for win validation
+        self.moves = '123456789'  # Also contained in a global variable to update if multiple games
 
     def get_name(self) :
         """
@@ -26,11 +26,11 @@ class Player :
         Gets a possible move and checks that it is an int between 1 and 9.
         """
         move = input(f'{self.name}, what is your move? ')
-        while move not in self.moves :  # So pretty.
+        while move not in self.moves :
             move = input('Enter a valid move (1 - 9):  ')
-        return move
+        return move  # Digit string
 
-    def apply_move(self, move) :
+    def apply_move(self, move: str) :  # move ends up being a digit string until this returns it as int
         """
         Once the move has been validated from get_move, and the function
         in main.py against previous moves, applies the move to the player

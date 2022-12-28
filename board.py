@@ -19,7 +19,7 @@ class Board:
             8:'_',
         }
 
-    def print_board(self) -> str:
+    def generate_board(self) -> str:  # Returns a board string to print in the terminal
         """
         Prints the gameboard in the terminal dadoiiiii
         """
@@ -32,7 +32,7 @@ class Board:
 
         return board
 
-    def update_board(self, loc: int, sym: str) :
+    def update_board(self, loc: int, sym: str) :  # loc is 1-9, and sym is the players symbol
         """
         Adds the player's symbol to the gameboard.
         """

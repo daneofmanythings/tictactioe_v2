@@ -6,9 +6,9 @@ from player    import Player
 from board     import Board
 from game      import Game
 
-BLANK_MOVES = '123456789'  # The instantiated version of player.moves for when looping games.
+BLANK_MOVES = '123456789'  # The instantiated version of player.moves for when looping games
 
-def get_player_move(player) :
+def get_player_move(player) :  # Takes instance of Player()
     """
     Calls the get_move method for the player.
     validates the move against a global list of untaken spaces
@@ -24,18 +24,18 @@ def get_player_move(player) :
 
     return move
 
-def player_turn(player) :
+def player_turn(player) :  # Takes instance of Player()
     """
     A loop for a player's turn.
     """
     move = get_player_move(player)  # Grabs player_1's potential move and validates it
     move = player.apply_move(move)  # Applies a valid move to the player
-    board.update_board(move[0] - 1, move[1])  # Passes the data on to the game board, loc and symbol.
-    print(board.print_board())  # Prints the game board
+    board.update_board(move[0] - 1, move[1])  # Passes the data on to the game board, loc and symbol
+    print(board.generate_board())  # Prints the game board
 
-    return  # I like how this looks. Don't @ me.
+    return  # I like how this looks. Don't @ me
 
-def check_win(player) :
+def check_win(player) :  # Takes instance of Player()
     """
     Checks to see if a player has won, then returns if the game should continue
     """
@@ -49,10 +49,10 @@ def main() :
     """
     Main logic function.
     """
-    # game loop that ends once all the moves are taken, or a player wins.
+    # game loop that ends once all the moves are taken, or a player wins
     keep_playing = True
     counter = 0  # Oscillates the turn order
-    print(board.print_board())
+    print(board.generate_board())  # initial print
     while len(taken_moves) < 9 and keep_playing :
 
         if counter == 0 :
@@ -102,7 +102,7 @@ if __name__ == '__main__' :
             taken_moves = []
             player_1.moves = BLANK_MOVES
             player_2.moves = BLANK_MOVES
-            print(board.print_board())
+            print(board.generate_board())
 
         if response == 'n' :
             print('Thank you for playing!')
