@@ -4,19 +4,30 @@ The class for the gameboard.
 
 class Board:
     def __init__(self) :
-        self.board = {  # each number represents a space on a 3x3 grid
-            1:'',
-            2:'',
-            3:'',
-            4:'',
-            5:'',
-            6:'',
-            7:'',
-            8:'',
-            9:'',
+        self.board = {  # each key represents a space on a 3x3 grid
+            1:'_',
+            2:'_',
+            3:'_',
+            4:'_',
+            5:'_',
+            6:'_',
+            7:'_',
+            8:'_',
+            9:'_',
         }
 
-    def place_symbol(self,symbol: str, location: int) :
-        self.board[location] = symbol
+    def print_board(self) -> str:
+        
+        board = ''
+
+        for idx, space in self.board.items() :
+            if idx % 3 == 0 :
+                board += '\n'
+            board += space
+
+        return board
+
+    def update_board(self, loc: int, sym: str) :
+        self.board[loc] = sym
 
     
