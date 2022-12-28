@@ -6,7 +6,7 @@ from player    import Player
 from board     import Board
 from game      import Game
 
-BLANK_MOVES = '123456789'
+BLANK_MOVES = '123456789'  # The instantiated version of player.moves for when looping games.
 
 def get_player_move(player) :
     """
@@ -52,6 +52,7 @@ def main() :
     # game loop that ends once all the moves are taken, or a player wins.
     keep_playing = True
     counter = 0  # Oscillates the turn order
+    print(board.print_board())
     while len(taken_moves) < 9 and keep_playing :
 
         if counter == 0 :
@@ -86,20 +87,22 @@ if __name__ == '__main__' :
     play_again = True
     while play_again :
 
-        # Resets the gamestate if players choose to play again.
-        board = Board()
-        taken_moves = []
-        player_1.moves = BLANK_MOVES
-        player_2.moves = BLANK_MOVES
-        print(board.print_board())  # Prints the game board
-
         # Main game
+        taken_moves = []
         main()
 
         # Asking to play again
         response = input('Would you like to play again? (y/n): ').lower()
         while response not in ('y', 'n') :
             response = input('Please input y or n: ').lower()
+
+        if response == 'y' :
+            # Resets the gamestate if players choose to play again.
+            board = Board()
+            taken_moves = []
+            player_1.moves = BLANK_MOVES
+            player_2.moves = BLANK_MOVES
+            print(board.print_board())
 
         if response == 'n' :
             print('Thank you for playing!')
