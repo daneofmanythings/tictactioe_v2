@@ -1,11 +1,14 @@
 """
 This is the player class. Stores all player specific information.
+Note* storing the index of a player in another class is kind of dodgy,
+but it works, questionmark?
 """
 
 class Player :
     
-    def __init__(self, symbol) :
-        self.symbol = symbol
+    def __init__(self, symbol, index) :
+        self.symbol = symbol  # Symbol to place on the board
+        self.index = index  # Index of player in the Game's list
         self.name = ''
         self.wins = 0
         self.moves = [
