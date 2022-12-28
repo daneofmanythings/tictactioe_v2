@@ -58,7 +58,7 @@ def main() :
             counter += 1
         else :
             player_turn(player_2)
-            keep_playing = check_win(player_1)
+            keep_playing = check_win(player_2)
             counter -= 1
 
 
