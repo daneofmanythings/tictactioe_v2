@@ -12,14 +12,12 @@ def get_player_move(player) :  # Takes instance of Player()
     Calls the get_move method for the player.
     validates the move against a global list of untaken spaces
     """
-    valid = False
 
-    while not valid :
+    while True :
         move = player.get_move()  # Loops until valid move is input
         if move not in taken_moves : # Checking the move against the global variable
             taken_moves.append(move)  # Adds the move to the list of moves
-            valid = True
-            continue
+            break
 
     return move
 
